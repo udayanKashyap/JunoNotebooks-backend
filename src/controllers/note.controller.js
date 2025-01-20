@@ -2,7 +2,9 @@ const catchAsync = require("../utils/errorHandler");
 const db = require("../db/prisma");
 
 const getAllNotes = catchAsync(async (req, res) => {
-  const { username } = req.query;
+  // const { username } = req.query;
+  const username = req.user;
+  console.log(req.user);
 
   const notes = await db.note.findMany({
     where: {

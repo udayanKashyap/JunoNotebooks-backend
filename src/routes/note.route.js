@@ -9,7 +9,6 @@ const {
 } = require("../controllers/note.controller");
 
 router.get("/all", getAllNotes);
-router.get("/", getNote);
 router.post("/", addNote);
 router.delete("/", deleteNote);
 router.post("/update", updateNote);

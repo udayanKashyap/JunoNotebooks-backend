@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const handleUserAuth = require("./src/middleware/userAuth");
 const userRouter = require("./src/routes/user.route");
 const noteRouter = require("./src/routes/note.route");
 
@@ -11,7 +12,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", userRouter);
-app.use("/note", noteRouter);
+app.use("/note", handleUserAuth, noteRouter);
 
 app.use((error, req, res, next) => {
   res.status(500).send({ message: error.message, stack: error.stack });
