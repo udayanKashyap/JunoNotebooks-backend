@@ -45,7 +45,6 @@ const loginUser = catchAsync(async (req, res) => {
       { expiresIn: "24h" },
     );
     res.status(200).send({
-      message: "Login Successful",
       username: user.username,
       token,
     });
